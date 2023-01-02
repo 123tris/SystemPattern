@@ -9,13 +9,7 @@ using System_Pattern;
 [Serializable]
 public class SystemBehaviour
 {
-    public enum Persistence
-    {
-        Global,
-        Scene
-    }
-
-    public Persistence persistence;
+    internal SystemBehaviour() {}
 
     public SystemBehaviourMetaData data;
 
@@ -27,3 +21,7 @@ public class SystemBehaviour
 
     protected internal virtual void Update() { }
 }
+
+//Empty classes so that the programmer has to decide what persistency type System he wants
+public abstract class GlobalSystem : SystemBehaviour {}
+public abstract class SceneSystem : SystemBehaviour {}

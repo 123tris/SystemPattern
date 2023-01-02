@@ -71,7 +71,7 @@ public static class SystemBehaviourFactory
         var definedTypes = Assembly.GetExecutingAssembly().DefinedTypes;
         foreach (TypeInfo definedType in definedTypes)
         {
-            if (definedType.IsSubclassOf(typeof(SystemBehaviour)))
+            if (definedType.IsSubclassOf(typeof(SystemBehaviour)) && !definedType.IsAbstract)
             {
                 systemBehavioursInAssembly.Add(definedType);
             }

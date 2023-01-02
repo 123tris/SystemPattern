@@ -40,8 +40,7 @@ public class SystemBehaviourEditorWindow : EditorWindow
         {
             EditorGUILayout.LabelField(systemBehaviour.GetType().Name, EditorStyles.boldLabel);
             EditorGUILayout.BeginVertical("Box");
-            if (systemBehaviour.data.gameObjectReferences.Count > 0 &&
-                systemBehaviour.persistence == SystemBehaviour.Persistence.Global)
+            if (systemBehaviour.data.gameObjectReferences.Count > 0 && systemBehaviour is GlobalSystem)
             {
                 EditorGUILayout.HelpBox("Are you sure you want a system with global persistence reference a object in a scene?", MessageType.Warning);
             }
@@ -49,12 +48,6 @@ public class SystemBehaviourEditorWindow : EditorWindow
             EditorGUILayout.EndVertical();
         }
         EditorGUILayout.EndScrollView();
-    }
-
-    private void SaveData(SystemBehaviour systemBehaviour)
-    {
-        var data = SerializationUtility.SerializeValue(systemBehaviour, DataFormat.JSON);
-        File.WriteAllBytes(SystemBehaviourFactory.GetSystemFilePath(systemBehaviour.GetType()), data);
     }
 
     void DrawSystemBehaviour(SystemBehaviour systemBehaviour)
@@ -71,6 +64,11 @@ public class SystemBehaviourEditorWindow : EditorWindow
                 GUI.changed = false;
             }
         }
+    }
+    private void SaveData(SystemBehaviour systemBehaviour)
+    {
+        var data = SerializationUtility.SerializeValue(systemBehaviour, DataFormat.JSON);
+        File.WriteAllBytes(SystemBehaviourFactory.GetSystemFilePath(systemBehaviour.GetType()), data);
     }
 
     /// <summary> Draw corresponding inspector GUI for the type of the object passed </summary>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace System_Pattern
 {
-    class PlaneShift : SystemBehaviour
+    class PlaneShift : GlobalSystem
     {
         public enum Theme { Dark, Light}
 

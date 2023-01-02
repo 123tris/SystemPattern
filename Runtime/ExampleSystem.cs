@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ExampleSystem : SystemBehaviour
+public class ExampleSystem : GlobalSystem
 {
     public float exampleNumber = 10;
 
