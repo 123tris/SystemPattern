@@ -2,7 +2,7 @@
 
 namespace System_Pattern
 {
-    class PlaneShift : SceneSystem
+    class SomeComponent : SceneSystem
     {
         public enum Theme { Dark, Light}
 
