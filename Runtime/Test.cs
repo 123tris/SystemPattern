@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Test : MonoBehaviour
 {
@@ -7,22 +9,11 @@ public class Test : MonoBehaviour
 
     void Start()
     {
-        Destroy(component);
-        //component = GetComponent<SomeComponent>();
-        //Destroy(component);
-        //component.Do(); //prints "Hi"
-        //TrueDestroy(ref component);
-        //component.Do(); //throws error
+
     }
 
-    void Update()
+    private void Update()
     {
-        component.Do();
-    }
 
-    private void TrueDestroy<T>(ref T o) where T : UnityEngine.Object
-    {
-        Destroy(o);
-        o = null;
     }
 }

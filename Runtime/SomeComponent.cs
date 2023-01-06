@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SomeComponent : MonoBehaviour
+public class SomeComponent : SceneSystem
 {
     public int number = 5;
 

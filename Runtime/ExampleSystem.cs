@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExampleSystem : GlobalSystem
 {
@@ -6,14 +7,24 @@ public class ExampleSystem : GlobalSystem
 
     public GameObject test;
 
-    protected internal override void Start()
+    void Start()
     {
         return;
         Debug.Log($"{test.name}");
         Debug.Log("Start called example number: "+exampleNumber);
     }
 
-    protected internal override void OnDestroy()
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+            SceneManager.LoadSceneAsync("New Scene",LoadSceneMode.Additive);
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene("Scenes/SampleScene");
+        if (Input.GetKeyDown(KeyCode.U))
+            SceneManager.LoadScene("New Scene");
+    }
+
+    void OnDestroy()
     {
         //save system data
     }
