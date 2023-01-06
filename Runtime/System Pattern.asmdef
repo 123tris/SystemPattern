@@ -1,0 +1,16 @@
+{
+    "name": "SystemPattern",
+    "rootNamespace": "",
+    "references": [
+        "GUID:57639a6845cf6c292ac495f48770253e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
