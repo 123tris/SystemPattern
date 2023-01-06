@@ -1,5 +1,5 @@
 {
-  "name": "com.tristeon.systempattern",
+  "name": "com.123tris.systempattern",
   "version": "1.0.0",
   "displayName": "System Pattern",
   "description": "A library that helps you avoid the singleton pattern and create systems\n that are persistent either through the application's lifetime or of a specific scene.",
@@ -9,12 +9,11 @@
     "extensions",
     "workflow",
     "singleton",
-    "pattern"
+    "editor"
   ],
   "author": {
     "name": "Tristan Metz",
     "email": "tristan.a.metz@gmail.com",
     "url": "https://tristanmetz.software"
-  },
-  "type": "library"
+  }
 }
