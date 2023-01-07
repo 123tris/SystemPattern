@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public static class SystemBehaviourFactory
 {
@@ -12,7 +15,7 @@ public static class SystemBehaviourFactory
     {
         //Get all types that derive from the abstract class System Behaviour
         List<TypeInfo> systemBehavioursInAssembly = new List<TypeInfo>();
-        var definedTypes = Assembly.GetExecutingAssembly().DefinedTypes;
+        var definedTypes = AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.DefinedTypes);
         foreach (TypeInfo definedType in definedTypes)
         {
             if (definedType.IsSubclassOf(typeof(SystemBehaviour)) && !definedType.IsAbstract)
