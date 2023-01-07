@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 /// <summary>
@@ -12,7 +14,7 @@ public class SerializeSceneAttribute : PropertyAttribute
 
 }
 
-
+#if UNITY_EDITOR
 /// <summary>
 /// Original Author: GlynnLeine
 /// Reviewer: YvensFaos
@@ -84,3 +86,4 @@ public class SerializeScenePropertyDrawer : PropertyDrawer
         return asset as SceneAsset;
     }
 }
+#endif
