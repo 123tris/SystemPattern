@@ -16,12 +16,12 @@ public class ExampleSystem : GlobalSystem
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-            SceneManager.LoadSceneAsync("New Scene",LoadSceneMode.Additive);
-        if (Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene("Scenes/SampleScene");
-        if (Input.GetKeyDown(KeyCode.U))
-            SceneManager.LoadScene("New Scene");
+        //if (Input.GetKeyDown(KeyCode.T))
+        //    SceneManager.LoadSceneAsync("New Scene",LoadSceneMode.Additive);
+        //if (Input.GetKeyDown(KeyCode.R))
+        //    SceneManager.LoadScene("Scenes/SampleScene");
+        //if (Input.GetKeyDown(KeyCode.U))
+        //    SceneManager.LoadScene("New Scene");
     }
 
     void OnDestroy()
