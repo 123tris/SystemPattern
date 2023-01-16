@@ -1,6 +1,6 @@
 {
   "name": "com.123tris.systempattern",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "displayName": "System Pattern",
   "description": "A library that helps you avoid the singleton pattern and create systems\n that are persistent either through the application's lifetime or of a specific scene.",
   "unity": "2020.3",
