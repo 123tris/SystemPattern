@@ -11,8 +11,8 @@ using Object = UnityEngine.Object;
 
 public class SystemManager
 {
-    private static readonly List<SystemBehaviour> globalSystems = new List<SystemBehaviour>();
-    private static readonly List<SceneSystem> sceneSystems = new List<SceneSystem>();
+    private static List<SystemBehaviour> globalSystems = new List<SystemBehaviour>();
+    private static List<SceneSystem> sceneSystems = new List<SceneSystem>();
 
     private static GameObject Prefab
     {
@@ -33,7 +33,17 @@ public class SystemManager
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void LoadSystemManager()
     {
-        systemBehaviourManager = new GameObject("System Behaviour Manager");
+        globalSystems = new List<SystemBehaviour>();
+        sceneSystems = new List<SceneSystem>();
+        systemBehaviourManager = Resources.Load<GameObject>("SystemManager");
+        if (systemBehaviourManager == null)
+            systemBehaviourManager = new GameObject("System Behaviour Manager");
+        else
+        {
+            systemBehaviourManager.SetActive(false);
+            systemBehaviourManager = Object.Instantiate(systemBehaviourManager);
+        }
+
         //Set gameobject to inactive to avoid invoking Awake/OnEnable on AddComponent calls
         systemBehaviourManager.SetActive(false);
 
@@ -41,7 +51,7 @@ public class SystemManager
         {
             if (typeof(SceneSystem).IsAssignableFrom(systemType))
                 continue;
-            SystemBehaviour instance = (SystemBehaviour)systemBehaviourManager.AddComponent(systemType);
+            SystemBehaviour instance = (SystemBehaviour)systemBehaviourManager.GetAddComponent(systemType);
             globalSystems.Add(instance);
         }
 

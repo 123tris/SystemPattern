@@ -26,6 +26,7 @@ public abstract class GlobalSystem : SystemBehaviour
     }
 }
 
+//Make a gameobject called "SceneSystems" in every scene whilst editing. Similar to Bolt's variables gameobject.
 public abstract class SceneSystem : SystemBehaviour
 {
     protected SceneSystem()
